@@ -21,8 +21,7 @@ include device/samsung/hlte-common/BoardConfigCommon.mk
 TARGET_OTA_ASSERT_DEVICE := h3g,h3gduoschn,h3gduoszn
 
 # Init
-TARGET_INIT_VENDOR_LIB := libinit_msm8974
-TARGET_LIBINIT_MSM8974_DEFINES_FILE := device/samsung/h3gduoschn/init/init_h3gduoschn.cpp
+TARGET_INIT_VENDOR_LIB := libinit_h3gduoschn
 
 # Kernel
 TARGET_KERNEL_CONFIG := lineage_h3gduoschn_defconfig

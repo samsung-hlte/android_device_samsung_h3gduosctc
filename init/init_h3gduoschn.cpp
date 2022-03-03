@@ -31,55 +31,22 @@
 #include <android-base/logging.h>
 #include <android-base/properties.h>
 
-#include "property_service.h"
-#include "vendor_init.h"
-
 #include "init_msm8974.h"
 
 using android::base::GetProperty;
-using android::init::property_set;
-
-void set_rild_libpath(char const *variant)
-{
-    std::string libpath("/vendor/lib/libsec-ril.");
-    libpath += variant;
-    libpath += ".so";
-
-    property_override("rild.libpath", libpath.c_str());
-}
-
-void cdma_properties(char const *operator_alpha,
-        char const *operator_numeric,
-        char const *default_network,
-        char const *cdma_sub,
-        char const *rild_lib_variant)
-{
-    /* Dynamic CDMA Properties */
-    property_set("ro.cdma.home.operator.alpha", operator_alpha);
-    property_set("ro.cdma.home.operator.numeric", operator_numeric);
-    property_set("ro.telephony.default_network", default_network);
-    property_set("ro.telephony.default_cdma_sub", cdma_sub);
-    set_rild_libpath(rild_lib_variant);
-
-    /* Static CDMA Properties */
-    property_set("ril.subscription.types", "NV,RUIM");
-}
-
-void gsm_properties(char const *rild_lib_variant)
-{
-    set_rild_libpath(rild_lib_variant);
-
-    property_set("ro.telephony.default_network", "0,1");
-}
 
 #define ISMATCH(a, b) (!strncmp((a), (b), PROP_VALUE_MAX))
 
-void init_target_properties()
+void property_override_dual(char const system_prop[],
+        char const vendor_prop[], char const value[])
+{
+    property_override(system_prop, value);
+    property_override(vendor_prop, value);
+}
+
+void vendor_load_properties()
 {
     std::string platform = GetProperty("ro.board.platform", "");
-    if (platform != ANDROID_TARGET)
-        return;
-
     std::string bootloader = GetProperty("ro.bootloader", "");
 
     if (bootloader.find("N9002") == 0) {
@@ -88,7 +55,7 @@ void init_target_properties()
         property_override("ro.build.description", "h3gduoszn-user 5.0 LRX21V N9002ZNSGQA1 release-keys");
         property_override_dual("ro.product.model", "ro.vendor.product.model", "SM-N9002");
         property_override_dual("ro.product.device", "ro.vendor.product.device", "h3gduoszn");
-        gsm_properties("02");
+        gsm_properties("9", "02");
     }
 
     std::string device = GetProperty("ro.product.device", "");
