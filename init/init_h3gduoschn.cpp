@@ -30,12 +30,18 @@
 
 #include <android-base/logging.h>
 #include <android-base/properties.h>
+#include <android-base/file.h>
+#include <android-base/strings.h>
 
 #include "init_msm8974.h"
 
 using android::base::GetProperty;
+using android::base::ReadFileToString;
+using android::base::Trim;
 
 #define ISMATCH(a, b) (!strncmp((a), (b), PROP_VALUE_MAX))
+
+#define SERIAL_NUMBER_FILE "/efs/FactoryApp/serial_no"
 
 void property_override_dual(char const system_prop[],
         char const vendor_prop[], char const value[])
@@ -46,8 +52,15 @@ void property_override_dual(char const system_prop[],
 
 void vendor_load_properties()
 {
+    char const *serial_number_file = SERIAL_NUMBER_FILE;
+    std::string serial_number;
     std::string platform = GetProperty("ro.board.platform", "");
     std::string bootloader = GetProperty("ro.bootloader", "");
+
+    if (ReadFileToString(serial_number_file, &serial_number)) {
+        serial_number = Trim(serial_number);
+        property_override("ro.serialno", serial_number.c_str());
+    }
 
     if (bootloader.find("N9002") == 0) {
         /* h3gduoszn */

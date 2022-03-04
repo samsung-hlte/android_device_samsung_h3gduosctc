@@ -21,6 +21,7 @@ cc_library_static {
     include_dirs: [
         "device/samsung/msm8974-common/init",
         "system/core/include",
+        "system/core/init"
     ],
     shared_libs: [
         "libbase",
