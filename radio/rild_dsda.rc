@@ -6,16 +6,16 @@
 #
 
 # For msim support
-service ril-daemon2 /vendor/bin/hw/rild -l /vendor/lib/libsec-ril-dsda.02.so -c 2
+service vendor.ril-daemon2 /vendor/bin/hw/rild -l /vendor/lib/libsec-ril-dsda.02.so -c 2
     class main
     user radio
     group radio cache inet misc audio log readproc wakelock oem_2901
     capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
-    onrestart restart cpboot-daemon
+    onrestart restart vendor.cpboot-daemon
 
-service cpboot-daemon /system/vendor/bin/cbd -d -p 21
+service vendor.cpboot-daemon /system/vendor/bin/cbd -d -p 21
     class main
     user root
     group radio cache inet misc audio sdcard_rw log sdcard_r
     seclabel u:r:cbd:s0
-    onrestart restart ril-daemon2
+    onrestart restart vendor.ril-daemon2
