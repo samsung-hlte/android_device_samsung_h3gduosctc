@@ -1,1 +1,1 @@
-/sbin/cbd                                               u:object_r:cbd_exec:s0
+system/vendor/bin/cbd                                               u:object_r:cbd_exec:s0
