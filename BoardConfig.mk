@@ -18,7 +18,7 @@ DEVICE_PATH := device/samsung/h3gduoschn
 # inherit from common hlte
 include device/samsung/hlte-common/BoardConfigCommon.mk
 
-TARGET_OTA_ASSERT_DEVICE := h3g,h3gduoschn,h3gduoszn
+TARGET_OTA_ASSERT_DEVICE := h3g,h3gduoschn,h3gduoszn,hlte
 
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_h3gduoschn
