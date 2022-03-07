@@ -32,8 +32,5 @@ include $(COMMON_PATH)/nfc/bcm2079x/board.mk
 # Radio/RIL
 include $(COMMON_PATH)/radio/dual/board.mk
 
-# SELinux
-BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
-
 # inherit from the proprietary version
 -include vendor/samsung/h3gduoschn/BoardConfigVendor.mk
