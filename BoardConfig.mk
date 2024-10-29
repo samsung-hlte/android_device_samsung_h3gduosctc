@@ -23,6 +23,10 @@ TARGET_OTA_ASSERT_DEVICE := h3g,h3gduosctc,hlte
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_h3gduosctc
 
+# Partitions
+BOARD_CACHEIMAGE_PARTITION_SIZE := 314572800
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2308545536
+
 # Kernel
 TARGET_KERNEL_CONFIG := lineage_h3gduosctc_defconfig
 
