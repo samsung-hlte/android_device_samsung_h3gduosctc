@@ -18,9 +18,9 @@
 
 set -e
 
-export DEVICE=h3gduoschn
+export DEVICE=h3gduosctc
 export DEVICE_COMMON=hlte-common
-export VARIANT_COPYRIGHT_YEAR=2018
+export VARIANT_COPYRIGHT_YEAR=2024
 export VENDOR=samsung
 
 ./../$DEVICE_COMMON/extract-files.sh $@

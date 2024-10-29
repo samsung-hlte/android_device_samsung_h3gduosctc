@@ -14,4 +14,9 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_h3gduoschn.mk
+    $(LOCAL_DIR)/lineage_h3gduosctc.mk
+    
+COMMON_LUNCH_CHOICES := \
+    lineage_h3gduosctc-eng \
+    lineage_h3gduosctc-user \
+    lineage_h3gduosctc-userdebug

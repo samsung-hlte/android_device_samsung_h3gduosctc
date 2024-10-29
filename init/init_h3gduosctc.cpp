@@ -62,13 +62,13 @@ void vendor_load_properties()
         property_override("ro.serialno", serial_number.c_str());
     }
 
-    if (bootloader.find("N9002") == 0) {
-        /* h3gduoszn */
-        property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "samsung/h3gduoszn/hlte:5.0/LRX21V/N9002ZNSGQA1:user/release-keys");
-        property_override("ro.build.description", "h3gduoszn-user 5.0 LRX21V N9002ZNSGQA1 release-keys");
-        property_override_dual("ro.product.model", "ro.vendor.product.model", "SM-N9002");
-        property_override_dual("ro.product.device", "ro.vendor.product.device", "h3gduoszn");
-        gsm_properties("9", "02");
+    if (bootloader.find("N9009") == 0) {
+        /* h3gduosctc */
+        property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "samsung/h3gduosctc/hlte:5.0/LRX21V/N9009KEU2GPB1:user/release-keys");
+        property_override("ro.build.description", "h3gduosctc-user 5.0 LRX21V N9009KEU2GPB1 release-keys");
+        property_override_dual("ro.product.model", "ro.vendor.product.model", "SM-N9009");
+        property_override_dual("ro.product.device", "ro.vendor.product.device", "h3gduosctc");
+        gsm_properties("9", "09");
     }
 
     std::string device = GetProperty("ro.product.device", "");

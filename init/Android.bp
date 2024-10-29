@@ -15,9 +15,9 @@
 //
 
 cc_library_static {
-    name: "libinit_h3gduoschn",
+    name: "libinit_h3gduosctc",
     recovery_available: true,
-    srcs: ["init_h3gduoschn.cpp"],
+    srcs: ["init_h3gduosctc.cpp"],
     include_dirs: [
         "device/samsung/msm8974-common/init",
         "system/core/include",

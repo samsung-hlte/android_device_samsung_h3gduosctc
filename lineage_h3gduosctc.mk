@@ -1,5 +1,5 @@
-# Copyright (C) 2014-2016 The CyanogenMod Project
-# Copyright (C) 2018 The LineageOS Project
+# Copyright (C) 2013-2016 The CyanogenMod Project
+# Copyright (C) 2017-2018 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,15 +13,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+# Inherit some common LineageOS stuff.
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-# Inherit from h3gduoschn device
-$(call inherit-product, device/samsung/h3gduoschn/device.mk)
+$(call inherit-product, device/samsung/h3gduosctc/full_h3gduosctc.mk)
 
-# Set those variables here to overwrite the inherited values.
-PRODUCT_NAME := full_h3gduoschn
-PRODUCT_DEVICE := h3gduoschn
-PRODUCT_BRAND := samsung
-PRODUCT_MANUFACTURER := samsung
-PRODUCT_MODEL := h3gduoschn
+PRODUCT_DEVICE := h3gduosctc
+PRODUCT_NAME := lineage_h3gduosctc

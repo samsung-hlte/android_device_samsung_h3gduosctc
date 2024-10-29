@@ -13,18 +13,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-DEVICE_PATH := device/samsung/h3gduoschn
+DEVICE_PATH := device/samsung/h3gduosctc
 
 # inherit from common hlte
 include device/samsung/hlte-common/BoardConfigCommon.mk
 
-TARGET_OTA_ASSERT_DEVICE := h3g,h3gduoschn,h3gduoszn,hlte,hltechn
+TARGET_OTA_ASSERT_DEVICE := h3g,h3gduosctc,hlte
 
 # Init
-TARGET_INIT_VENDOR_LIB := libinit_h3gduoschn
+TARGET_INIT_VENDOR_LIB := libinit_h3gduosctc
 
 # Kernel
-TARGET_KERNEL_CONFIG := lineage_h3gduoschn_defconfig
+TARGET_KERNEL_CONFIG := lineage_h3gduosctc_defconfig
 
 # NFC
 include $(COMMON_PATH)/nfc/bcm2079x/board.mk
@@ -33,4 +33,4 @@ include $(COMMON_PATH)/nfc/bcm2079x/board.mk
 include $(COMMON_PATH)/radio/dual/board.mk
 
 # inherit from the proprietary version
--include vendor/samsung/h3gduoschn/BoardConfigVendor.mk
+-include vendor/samsung/h3gduosctc/BoardConfigVendor.mk

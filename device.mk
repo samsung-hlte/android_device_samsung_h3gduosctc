@@ -18,7 +18,7 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Get non-open-source specific aspects
-$(call inherit-product-if-exists, vendor/samsung/h3gduoschn/h3gduoschn-vendor.mk)
+$(call inherit-product-if-exists, vendor/samsung/h3gduosctc/h3gduosctc-vendor.mk)
 
 # Common hlte
 $(call inherit-product, device/samsung/hlte-common/hlte.mk)
